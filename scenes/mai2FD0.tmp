@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://cm3cqlt17jqkd"]
+
+[ext_resource type="Script" path="res://scripts/DungeonGenerator.gd" id="1_23isc"]
+[ext_resource type="PackedScene" uid="uid://carp0erx8vowg" path="res://scenes/rooms/Room1.tscn" id="2_372ry"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="4_3owhy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k7xec"]
+
+[sub_resource type="Sky" id="Sky_ypmsr"]
+sky_material = SubResource("ProceduralSkyMaterial_k7xec")
+
+[sub_resource type="Environment" id="Environment_650ss"]
+background_mode = 2
+background_energy_multiplier = 2.52
+sky = SubResource("Sky_ypmsr")
+ambient_light_source = 3
+ambient_light_color = Color(0.263377, 0.398899, 0.500884, 1)
+ambient_light_energy = 2.35
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_23isc")
+room_scenes = Array[PackedScene]([ExtResource("2_372ry")])
+
+[node name="Camera3D" type="Camera3D" parent="."]
+script = ExtResource("4_3owhy")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_650ss")

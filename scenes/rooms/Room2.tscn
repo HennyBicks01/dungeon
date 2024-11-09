@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://buow0o55lsbso"]
+
+[ext_resource type="Script" path="res://scripts/Room.gd" id="1_v4uej"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t28s7"]
+albedo_color = Color(0, 0.561685, 0.688578, 1)
+
+[node name="Room2" type="Node3D"]
+script = ExtResource("1_v4uej")
+room_cost = 20
+room_size = Vector3(4.36, 1, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_t28s7")
+size = Vector3(10, 10, 20)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+operation = 2
+size = Vector3(9, 9, 19)
+
+[node name="Door" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -10)
+operation = 2
+size = Vector3(3, 5, 1)
+
+[node name="Door2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, -2, 5)
+operation = 2
+size = Vector3(3, 5, 1)
+
+[node name="Door3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 10)
+operation = 2
+size = Vector3(3, 5, 1)
+
+[node name="Door4" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, -2, -5)
+operation = 2
+size = Vector3(3, 5, 1)
